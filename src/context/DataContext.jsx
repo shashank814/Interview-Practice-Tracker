@@ -10,7 +10,7 @@ export const DataConextProvider = ({ children }) => {
       return JSON.parse(savedQuestions);
     }
 
-    return null;
+    return [];
   });
 
   useEffect(() => {

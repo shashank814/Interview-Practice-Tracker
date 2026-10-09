@@ -41,7 +41,7 @@ const QuestionForm = () => {
       status: "Pending",
     };
 
-    setQuestions([...questions, newQuestion]);
+    setQuestions([...(Array.isArray(questions) ? questions : []), newQuestion]);
 
     setTitle("");
     setCategory("");

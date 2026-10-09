@@ -21,21 +21,21 @@ const Dashboard = () => {
   const [search, setSearch] = useState("");
 
   // Statistics
-  const completed = questions.filter(
+  const completed = (questions ?? []).filter(
     (val) => val.status === "Completed"
   );
 
   const progress =
-    questions.length > 0
+    questions?.length > 0
       ? Math.round((completed.length / questions.length) * 100)
       : 0;
 
-  const pending = questions.filter(
+  const pending = (questions ?? []).filter(
     (val) => val.status === "Pending"
   );
 
   // Apply all filters
-  const filteredQuestions = questions.filter((question) => {
+  const filteredQuestions = (questions ?? []).filter((question) => {
     const categoryMatch =
       category === "All" || question.category === category;
 
@@ -101,7 +101,7 @@ const Dashboard = () => {
             </p>
 
             <p className="mt-1 text-xl font-bold text-gray-900 sm:text-2xl">
-              {questions.length}
+              {questions?.length}
             </p>
           </div>
         </div>
@@ -159,7 +159,7 @@ const Dashboard = () => {
       </div>
 
       {/* Empty State */}
-      {questions.length === 0 ? (
+      {questions?.length === 0 ? (
         <EmptyState />
       ) : (
         <>
